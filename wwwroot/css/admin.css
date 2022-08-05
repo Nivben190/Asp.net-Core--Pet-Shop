@@ -1,0 +1,31 @@
+﻿body {
+}
+
+.ContainList {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.img {
+    width: 80%;
+    height: 12rem;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    height: 20rem;
+    width: 17rem;
+    margin-left: auto;
+    margin-top: 50px;
+    margin-right: auto;
+}
+
+.ContainList h1 {
+    margin-top: 100px
+}

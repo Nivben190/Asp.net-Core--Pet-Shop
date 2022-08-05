@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model IEnumerable<amirProject.Models.Animal>
+
+<head>
+    <link type="text/css" rel="stylesheet" href="~/css/niv.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/amirProject.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="text-center">
+        <h1 class="display-4">The Best Pet Shop In Town </h1>
+
+
+        @using (Html.BeginForm("Index", "Animal", FormMethod.Post))
+        {
+            @Html.TextBox("MyCategory", null, new { @placeholder = "Search By Category" })
+            <input type="submit" value="Show Me" />
+        }
+     
+        <div>
+            <div class="ContainList">
+
+                @foreach (var animal in Model)
+                {
+                    <div class="card">
+                        <div class="container">
+                            <h4><b>@animal.Name</b></h4>
+                            <img class="img" src="@animal.PictureSrc" />
+                           
+                            <p>this animal desc</p>
+                            <a asp-action="AnimalPage" asp-controller="Animal" asp-route-id="@animal.AnimalId">Show Me More</a>
+                        </div>
+                    </div>
+                }
+            </div>
+            </div>
+        </div>
+</body>
+
+

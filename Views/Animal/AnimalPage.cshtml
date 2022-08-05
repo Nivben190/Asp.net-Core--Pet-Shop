@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Animal Page";
+}
+@model amirProject.Models.Animal
+
+<head>
+    <link type="text/css" rel="stylesheet" href="~/css/niv.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/amirProject.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="text-center">
+        <h1 class="display-4">@Model.Name </h1>
+
+        @using (Html.BeginForm("AddComment", "Animal",new {id=Model.AnimalId} ,FormMethod.Post))
+        {
+            @Html.TextBox("Comment", null, new { @placeholder = "Add Comment Here",id=Model.AnimalId })
+                
+            <input type="submit" value="Add Comment" />
+        }
+
+        <div>
+            <div>
+                <h1>@Model.Name Age : @Model.Age</h1>
+                <h1>Desc:@Model.Description</h1>
+                <h1>Category:</h1>
+                <p>@Model.Categories!.Name</p>
+                <img src="@Model.PictureSrc" style="width:200px; height:150px" />
+            </div>
+
+            <div>
+                Comments:
+                @foreach (var c in Model.Comments!)
+                {
+                    <p>@c.Content</p>
+                }
+
+
+            </div>
+            <a asp-action="Index" asp-controller="Animal">Go Back</a>
+        </div>
+    </div>
+</body>
+
+

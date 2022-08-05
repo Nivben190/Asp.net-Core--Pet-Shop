@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Add New Animal Page";
+}
+@model amirProject.Models.Animal
+
+<head>
+    <link type="text/css" rel="stylesheet" href="~/css/niv.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/amirProject.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="text-center">
+        <h1 class="display-4">Add New Animal </h1>
+
+        @using (Html.BeginForm("AddNewAnimalAction", "Animal", FormMethod.Post))
+        {
+            @Html.Label("Animal Name");
+            @Html.TextBox("AnimalName", null, new { @placeholder = "Animal Name" })
+            <br />
+            @Html.Label("Animal Age");
+            @Html.TextBox("Age", null, new { @placeholder = "Animal Age" })
+            <br />
+            @Html.Label("PicName");
+            @Html.TextBox("PicName", null, new { @placeholder = "Pic Name" })
+            <br />
+            @Html.Label("Desc");
+            @Html.TextArea("Desc", null, new { @placeholder = "Add Desc Here" })
+            <br />
+            @*@Html.Label("Category");
+            @Html.TextBox("Category")*@
+
+            <input type="submit" value="Add Animal" />
+
+        }
+
+
+    </div>
+</body>
+
+

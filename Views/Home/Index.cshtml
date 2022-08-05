@@ -1,0 +1,35 @@
+﻿
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<amirProject.Models.Animal>
+
+<head>
+    <link type="text/css" rel="stylesheet" href="~/css/niv.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/amirProject.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="text-center">
+        <h1 class="display-4">The Best Pet Shop In Town </h1>
+        <h1 style="margin-top:100px" class="display-4">Our Must Commented Pets</h1>
+
+        <div class="ContainList">
+            @foreach (var animal in Model)
+            {
+                <div class="card">
+                    <div class="container">
+                        <h4><b>@animal.Name</b></h4>
+                        @foreach (var comment in animal.Comments!)
+                        {
+                            <p>@comment.Content</p>
+                        }
+
+                        <img class="img" src="@animal.PictureSrc"  />
+                    </div>
+                </div>
+            }
+        </div>
+        <h4>Want to see More Animals?</h4>
+        <a asp-action="index" asp-controller="Animal">click here :)</a>
+    </div>
+</body>
