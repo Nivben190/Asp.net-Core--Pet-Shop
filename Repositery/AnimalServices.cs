@@ -12,6 +12,8 @@ namespace amirProject.Repositery
         List<Animal> GetAnimalsByCategory(string Category);
         AnimalsContext GetAllAnimals();
         public Animal Find(int id);
+        public void AddNewAnimalF(string AnimalName, int Age, string PicName, string Desc);
+
     }
 }
 

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using amirProject.Models;
 using amirProject.Repositery;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -26,19 +27,19 @@ namespace amirProject.Controllers
         }
         public IActionResult Index()
         {
-            return View(animalServices.GetAllAnimals().Animals!);
+            return View(animalServices.GetAllAnimals().Animals!.Include(c=>c.Categories));
         }
         public IActionResult Delete(int id)
         {
             animalServices.DeleteService(id);
             return RedirectToAction("index");
         }
-        public IActionResult AddNewAnimals(int id)
+        public IActionResult AddNewAnimal(string AnimalName, int Age, string PicName, string Desc)
         {
-            animalServices.AddNewAnimalService(new Animal { Name = "yonatan", AnimalId = 91 });
-            return RedirectToAction("index");
+            animalServices.AddNewAnimalF(AnimalName,Age,PicName,Desc);
+            return View("Index", animalServices.GetAllAnimals().Animals!);
         }
-        public IActionResult UpdateAnimals(Animal Animal )
+        public IActionResult UpdateAnimals(Animal Animal)
         {         
             animalServices.UpdateService((int)Animal.AnimalId!, Animal);
             return RedirectToAction("index");

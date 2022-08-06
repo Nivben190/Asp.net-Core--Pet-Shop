@@ -16,17 +16,16 @@
         <div class="ContainList">
             @foreach (var animal in Model)
             {
-                <div class="card">
-                    <div class="container">
-                        <h4><b>@animal.Name</b></h4>
-                        @foreach (var comment in animal.Comments!)
-                        {
-                            <p>@comment.Content</p>
-                        }
+            <div class="card" style="width: 18rem; height:fit-content">
+                <img class="card-img-top" src="@animal.PictureSrc" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">@animal.Name</h5>
+                    <p class="card-text">@animal.Description</p>
+                    <p class="card-text">Number Of Comments: @animal.Comments!.Count</p>
 
-                        <img class="img" src="@animal.PictureSrc"  />
-                    </div>
                 </div>
+            </div>  
+               
             }
         </div>
         <h4>Want to see More Animals?</h4>

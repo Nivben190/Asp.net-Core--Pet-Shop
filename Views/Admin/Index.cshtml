@@ -14,6 +14,8 @@
         <h1 class="display-4">Admin Page </h1>
 
         <div>
+            <a asp-action="BackToAnimalPage" asp-controller="Animal">Add New Animal</a>
+
             <div class="ContainList">
 
 
@@ -25,11 +27,9 @@
                             <h4><b>@animal.Name</b></h4>
                             <img class="img" src="@animal.PictureSrc" />
                             <p>@animal.Description</p>
-                          
+
                             <a asp-action="Delete" asp-controller="Admin" asp-route-id="@animal.AnimalId">Delete</a>
                             <a asp-action="EditAnimal" asp-controller="Admin" asp-route-id="@animal.AnimalId">Edit</a>
-                            <a asp-action="BackToAnimalPage" asp-controller="Animal" asp-route-Animal="@animal">Add New</a>
-
                         </div>
                     </div>
                 }

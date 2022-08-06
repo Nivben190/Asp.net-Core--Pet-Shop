@@ -6,7 +6,7 @@ using amirProject.Data;
 using amirProject.Models;
 using amirProject.Repositery;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.EntityFrameworkCore;
 
 namespace amirProject.Controllers
 {
@@ -28,30 +28,24 @@ namespace amirProject.Controllers
            animalServices.GetAllAnimals().SaveChanges();
           return View("AnimalPage", animalFound);
         }
-        public IActionResult Index(string MyCategory)
+        public IActionResult Index(string Category)
         {
-            return View(animalServices.GetAnimalsByCategory(MyCategory));
+            return View(animalServices.GetAnimalsByCategory(Category));
         }
 
-        public IActionResult BackToAnimalPage(string MyCategory)
+        public IActionResult BackToAnimalPage(int id)
         {
             return View("AddNewAnimal");
         }
 
 
-        public IActionResult AddNewAnimalAction(string AnimalName,int Age,string Desc,string PicName)
-        {
-            var length = animalServices.GetAllAnimals().Animals!.ToList().Count;
-            animalServices.GetAllAnimals()!.Add(
-                new Animal {AnimalId= length+1, CategoryId = 1 ,Age=Age,Name=AnimalName,Description=Desc,PictureSrc= "https://cdn.britannica.com/05/203605-050-59F5FB39/chameleon-on-branch.jpg" });
-            animalServices.GetAllAnimals().SaveChanges();
-            return View("Index", animalServices.GetAllAnimals().Animals);
-        }
+     
 
         public IActionResult AnimalPage(int id)
         {
+            var animalFound = animalServices.Find(id);
 
-           return View(animalServices.Find(id));
+           return View(animalFound);
           }
    
        
