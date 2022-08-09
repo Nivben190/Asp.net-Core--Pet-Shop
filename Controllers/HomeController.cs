@@ -9,34 +9,11 @@ namespace amirProject.Controllers;
 
 public class HomeController : Controller
 {
-    private AnimalsContext _context;
+    private IAnimalServices animalServices;
 
-    public HomeController(AnimalsContext context)
-    {
-        _context = context;
+    public HomeController(IAnimalServices animalServices) => this.animalServices = animalServices;
 
-    }
-    public List<Animal> GetTopTwoCommentedAnimals()
-    {
-        var animal = _context.Animals!.Include(c => c.Comments);
-        var pets = animal!.OrderByDescending(p => p.Comments!.Count).Take(2).ToList();
-        return pets;
-
-    }
-
-    public IActionResult Index()
-    {
-        
-        return View(GetTopTwoCommentedAnimals());
-    }
-
-    public IActionResult Delete(int id)
-    {
-        var animal = _context.Animals!.Single(m => m.AnimalId == id);
-        _context.Animals!.Remove(animal);
-        _context.SaveChanges();
-        return RedirectToAction("index");
-    }
+    public IActionResult Index() => View(animalServices.GetTopTwoCommentedAnimals());
 
 
 }

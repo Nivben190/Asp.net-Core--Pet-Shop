@@ -13,7 +13,7 @@
     <div class="text-center">
         <h1 style="margin-bottom:70px" class="display-4">@Model.Name Page </h1>
 
-        @using (Html.BeginForm("AddComment", "Animal",new {id=Model.AnimalId} ,FormMethod.Post))
+        @using (Html.BeginForm("AddCommentToAnimal", "Animal",new {id=Model.AnimalId} ,FormMethod.Post))
         {
             @Html.TextBox("Comment", null, new { @placeholder = "Add Comment Here",id=Model.AnimalId })
                 

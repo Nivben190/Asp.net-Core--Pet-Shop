@@ -9,19 +9,33 @@ namespace amirProject.Repositery
     {
         private AnimalsContext _context;
 
-        public AnimalRepo(AnimalsContext context)
+        public AnimalRepo(AnimalsContext context) => _context = context;
+
+        public Animal AddNewCommentToAnimal(string Comment, int id)
         {
-            _context = context;
+            var animalFound = FindAnimalById(id);
+            animalFound.Comments!.Add(new Comment { Content = Comment });
+            GetAllAnimals().SaveChanges();
+            return animalFound;
         }
 
-        public void AddNewAnimalF(string AnimalName,int Age,string PicName,string Desc)
+        public List<Animal> GetTopTwoCommentedAnimals()
+        {
+            var animal = _context.Animals!.Include(c => c.Comments);
+            var pets = animal!.OrderByDescending(p => p.Comments!.Count).Take(2).ToList();
+            return pets;
+
+        }
+
+        public void AddNewAnimal(string AnimalName,int Age,string PicName,string Desc)
         {
             var animalList = _context.Animals!.ToArray();
             int id = (int)(animalList[animalList.Length - 1].AnimalId! + 1);
             _context.Animals!.Add(new Animal { AnimalId = id, Age = Age, Name = AnimalName,CategoryId=1, Description = Desc, PictureSrc = PicName });
             _context.SaveChanges();
         }
-        public Animal Find(int id)
+
+        public Animal FindAnimalById(int id)
         {
             var categories = _context.Animals!.Include(c => c.Categories).ThenInclude(c => c!.Animals!).ThenInclude(c => c.Comments);
             var animal = categories!.Single(m => m.AnimalId == id);
@@ -34,14 +48,10 @@ namespace amirProject.Repositery
             if (Category != null && Category !="Show All") return animal.ToList();
             else return _context.Animals!.ToList();
         }
-         public AnimalsContext GetAllAnimals()
+
+        public AnimalsContext GetAllAnimals()
         {
             return _context;
-        }
-        public void AddNewAnimalService(Animal animal)
-        {
-            _context.Animals!.Add(animal);
-            _context.SaveChanges();
         }
 
         public void DeleteService(int id)

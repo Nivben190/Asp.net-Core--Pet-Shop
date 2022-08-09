@@ -15,41 +15,24 @@ namespace amirProject.Controllers
     public class AnimalController : Controller
     {
         private IAnimalServices animalServices;
-        public AnimalController(IAnimalServices animalServices)
-        {
 
-            this.animalServices = animalServices;
+        public AnimalController(IAnimalServices animalServices) => this.animalServices = animalServices;
 
-        }
-        public IActionResult AddComment(string Comment,int id)
+        public IActionResult AddCommentToAnimal(string Comment, int id)
         {
-           var animalFound= animalServices.Find(id);
-           animalFound.Comments!.Add(new Comment { Content = Comment });
-           animalServices.GetAllAnimals().SaveChanges();
-          return View("AnimalPage", animalFound);
-        }
-        public IActionResult Index(string Category)
-        {
-            return View(animalServices.GetAnimalsByCategory(Category));
+           var animalFound =animalServices.AddNewCommentToAnimal(Comment,id);
+           return View("AnimalPage", animalFound);
         }
 
-        public IActionResult BackToAnimalPage(int id)
-        {
-            return View("AddNewAnimal");
-        }
+        public IActionResult Index(string Category) => View(animalServices.GetAnimalsByCategory(Category));
 
-
-     
+        public IActionResult BackToAnimalPage() => View("AddNewAnimal");
 
         public IActionResult AnimalPage(int id)
         {
-            var animalFound = animalServices.Find(id);
-
-           return View(animalFound);
+            var animalFound = animalServices.FindAnimalById(id);
+            return View(animalFound);
           }
-   
-       
-
     }
 }
 

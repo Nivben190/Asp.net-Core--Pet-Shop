@@ -16,29 +16,26 @@ namespace amirProject.Controllers
         private IAnimalServices animalServices;
 
 
-        public AdminController(IAnimalServices animalServices)
-        {
-            this.animalServices = animalServices;
+        public AdminController(IAnimalServices animalServices) => this.animalServices = animalServices;
 
-        }
-        public IActionResult EditAnimal(int id)
-        {
-            return View(animalServices.Find(id));
-        }
-        public IActionResult Index()
-        {
-            return View(animalServices.GetAllAnimals().Animals!.Include(c=>c.Categories));
-        }
-        public IActionResult Delete(int id)
+
+        public IActionResult EditAnimal(int id) => View(animalServices.FindAnimalById(id));
+
+
+        public IActionResult Index() => View(animalServices.GetAllAnimals().Animals!.Include(c => c.Categories));
+
+        public IActionResult DeleteAnimal(int id)
         {
             animalServices.DeleteService(id);
             return RedirectToAction("index");
         }
+
         public IActionResult AddNewAnimal(string AnimalName, int Age, string PicName, string Desc)
         {
-            animalServices.AddNewAnimalF(AnimalName,Age,PicName,Desc);
+            animalServices.AddNewAnimal(AnimalName,Age,PicName,Desc);
             return View("Index", animalServices.GetAllAnimals().Animals!);
         }
+
         public IActionResult UpdateAnimals(Animal Animal)
         {         
             animalServices.UpdateService((int)Animal.AnimalId!, Animal);
