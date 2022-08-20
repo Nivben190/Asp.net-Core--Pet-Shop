@@ -15,12 +15,24 @@ namespace amirProject.Controllers
     {
         private IAnimalServices animalServices;
 
-
         public AdminController(IAnimalServices animalServices) => this.animalServices = animalServices;
 
+        public IActionResult ShowLoginPage() => View("Login");
+
+        public IActionResult Login(Admin admin)
+        {
+            if (ModelState.IsValid)
+            {
+                if (admin.Email == "nivniv66@gmail.com" && admin.Password == "nivniv66") return RedirectToAction("Index");
+                else return View("Login");
+            }
+            return View("Login");
+                
+
+
+        }
 
         public IActionResult EditAnimal(int id) => View(animalServices.FindAnimalById(id));
-
 
         public IActionResult Index() => View(animalServices.GetAllAnimals().Animals!.Include(c => c.Categories));
 
@@ -30,15 +42,15 @@ namespace amirProject.Controllers
             return RedirectToAction("index");
         }
 
-        public IActionResult AddNewAnimal(string AnimalName, int Age, string PicName, string Desc)
+        public IActionResult AddNewAnimal(Animal animal,int categoryId)
         {
-            animalServices.AddNewAnimal(AnimalName,Age,PicName,Desc);
+            animalServices.AddNewAnimal(animal, categoryId);
             return View("Index", animalServices.GetAllAnimals().Animals!);
         }
 
-        public IActionResult UpdateAnimals(Animal Animal)
+        public IActionResult UpdateAnimals(Animal Animal,int categoryId)
         {         
-            animalServices.UpdateService((int)Animal.AnimalId!, Animal);
+            animalServices.UpdateService((int)Animal.AnimalId!, Animal, categoryId);
             return RedirectToAction("index");
         }
     }

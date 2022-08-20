@@ -10,39 +10,68 @@
     <link rel="stylesheet" href="~/amirProject.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <div class="text-center">
-        <h1 style="margin-bottom:70px" class="display-4">@Model.Name Page </h1>
 
-        @using (Html.BeginForm("AddCommentToAnimal", "Animal",new {id=Model.AnimalId} ,FormMethod.Post))
-        {
-            @Html.TextBox("Comment", null, new { @placeholder = "Add Comment Here",id=Model.AnimalId })
-                
-            <input type="submit" value="Add Comment" />
-        }
+
+    <div class="text-center">
+        <h1 style="margin-bottom:70px;color:black;" class="display-4">@Model.Name Page </h1>
+
 
         <div>
             <div>
-                <div class="card" style="width: 38rem; height:fit-content">
-                    <div class="card-body">
-                        <h1>@Model.Name Age : @Model.Age</h1>
-                        <h1>Desc :</h1><p>@Model.Description</p>
-                        <h1>Category Name :</h1><p>@Model.Categories!.Name</p>
-                        Comments:
-                        @foreach (var c in Model.Comments!)
-                        {
-                            <p>@c.Content</p>
-                        }
-                    </div>
-                </div>      
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="background-color:green;" scope="col">Portrait</th>
+                            <th style="background-color:green;" scope="col">Name</th>
+                            <th style="background-color:green;" scope="col">Age</th>
+                            <th style="background-color:green;" scope="col">Description</th>
+                            <th style="background-color:green;" scope="col">Comments</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th style="border:1px solid black" scope="row"><img style="height:250px" src=@Model.PictureSrc /></th>
+                            <td style="border:1px solid black">@Model.Name</td>
+                            <th style="border:1px solid black" scope="row">@Model.Age</th>
+                            <th style="border:1px solid black" scope="row">@Model.Description</th>
+
+                            <th style="border:1px solid black" scope="row">
+                                @foreach (var c in Model.Comments!)
+                                {
+                                    <p>@c.Content</p>
+                                }
+
+                            </th>
+
+                        </tr>
+
+
+                    </tbody>
+                </table>
+
             </div>
             <div>
-              
-
-
             </div>
-            <a asp-action="Index" asp-controller="Animal">Go Back</a>
         </div>
     </div>
+    <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4" style="margin-left:30%;">
+        @using (Html.BeginForm("AddCommentToAnimal", "Animal", new { id = Model.AnimalId }, FormMethod.Post))
+        {
+            <div class="form-group text-center">
+                <h4 style="margin-bottom:30px;">Leave a comment</h4>
+                @Html.TextBox("Comment", null, new { @placeholder = "Add Comment Here", id = Model.AnimalId, @class = "addComment" })
+            </div>
+
+
+            <div class="form-group">
+                <input style="color:white; border:none; background-color: transparent; margin-top:30px; margin-left:40%;" type="submit" value="Post Comment" />
+            </div>
+        }
+
+    </div>
+    <a asp-action="Index" asp-controller="Animal">Go Back</a>
+
 </body>
 
 

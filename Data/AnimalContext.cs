@@ -21,6 +21,7 @@ namespace amirProject.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
             var sources = new string[]
                    {
                 "https://www.computerhope.com/jargon/e/error.png",

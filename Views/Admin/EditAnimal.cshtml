@@ -6,7 +6,6 @@
 @using (Html.BeginForm("UpdateAnimals", "Admin", FormMethod.Post))
 {
 
-
     @Html.HiddenFor(model => model.AnimalId)
     <br />
 
@@ -23,7 +22,29 @@
     <br />
     @Html.Label("PicSrc");
     @Html.TextBoxFor(model => model.PictureSrc)
-    <br/>
+    <br />
+
+    <fieldset>
+        <p class="SearchByCategory"> Category:</p> <select id="categoryId" name="categoryId">
+
+            
+
+            <option value="1">Birds</option>
+
+            <option value="2">Mammals</option>
+
+
+            <option value="3">Fishes</option>
+
+            <option value="4">Amphibians</option>
+
+
+            <option value="5">reptiles</option>
+
+        </select>
+        <input class="submit" type="submit" value="Show Me" />
+
+    </fieldset>
     <input type="submit" value="Edit Animal" />
 
 }

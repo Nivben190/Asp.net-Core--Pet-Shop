@@ -20,8 +20,12 @@ namespace amirProject.Controllers
 
         public IActionResult AddCommentToAnimal(string Comment, int id)
         {
-           var animalFound =animalServices.AddNewCommentToAnimal(Comment,id);
-           return View("AnimalPage", animalFound);
+            if (ModelState.IsValid)
+            {
+                var animalFound = animalServices.AddNewCommentToAnimal(Comment, id);
+                return View("AnimalPage", animalFound);
+            }
+            else return View();
         }
 
         public IActionResult Index(string Category) => View(animalServices.GetAnimalsByCategory(Category));

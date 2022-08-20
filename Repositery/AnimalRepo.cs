@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Buffers.Text;
+using System.IO.Pipelines;
+using System.Text;
 using amirProject.Data;
 using amirProject.Models;
 using Microsoft.EntityFrameworkCore;
@@ -26,12 +29,16 @@ namespace amirProject.Repositery
             return pets;
 
         }
+       
 
-        public void AddNewAnimal(string AnimalName,int Age,string PicName,string Desc)
+
+    public void AddNewAnimal(Animal animal, int categoryId)
         {
             var animalList = _context.Animals!.ToArray();
             int id = (int)(animalList[animalList.Length - 1].AnimalId! + 1);
-            _context.Animals!.Add(new Animal { AnimalId = id, Age = Age, Name = AnimalName,CategoryId=1, Description = Desc, PictureSrc = PicName });
+
+
+     _context.Animals!.Add(new Animal { AnimalId = id, Age = animal.Age, Name = animal.Name, CategoryId= categoryId, Description = animal.Description, PictureSrc = animal.PictureSrc });
             _context.SaveChanges();
         }
 
@@ -61,10 +68,11 @@ namespace amirProject.Repositery
             _context.SaveChanges();
         }
 
-        public void UpdateService(int id,Animal animal)
+        public void UpdateService(int id,Animal animal,int categoryId)
         {
             var animalFound = _context.Animals!.Single(m => m.AnimalId == id);
             _context.Animals!.Update(animalFound);
+            if(categoryId != animalFound.CategoryId) animalFound.CategoryId = categoryId;
             animalFound.Name=animal.Name;
             animalFound.Age = animal.Age;
             animalFound.Description = animal.Description;

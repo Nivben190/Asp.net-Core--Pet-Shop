@@ -4,20 +4,21 @@
 @model IEnumerable<amirProject.Models.Animal>
 
 <head>
+
     <link type="text/css" rel="stylesheet" href="~/css/niv.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/amirProject.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <div class="text-center">
-        <h1 class="display-4">The Best Pet Shop In Town </h1>
+   <div class="text-center">
+        <h1 class="display-4" style="color:black;">The Best Pet Shop In Town </h1>
 
 
-        <form action="/Animal/Index" method="post">
+        <form style="background-color:white; border:none;" action="/Animal/Index" method="post">
 
             <fieldset>
-               <p style="font-size:20px; margin-top:30px; margin-bottom:30px;"> Search By Category</p> <select id="Category" style="width:130px" name="Category">
+           <p class="SearchByCategory">Search By Category...</p> <select id="Category"  name="Category">
 
     <option value="Show All">Show All</option>
 
@@ -34,7 +35,7 @@
     <option value="reptiles">reptiles</option>
 
 </select>
-                <input class="submit" style="width:100px;margin-left:30px;" type="submit" value="Show Me" /> 
+                <input class="submit" type="submit" value="Show Me" /> 
 
             </fieldset>
 
@@ -45,12 +46,14 @@
 
                 @foreach (var animal in Model)
                 {
-                    <div class="card" style="width: 18rem; height:26rem">
-                        <img class="card-img-top" style="height:15rem;"  src="@animal.PictureSrc" alt="Card image cap">
+                        
+                    <div class="card" style="width: 18rem; height:20rem">
+                        <img class="card-img-top" style="height:15rem;" src="@animal.PictureSrc" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">@animal.Name</h5>
-                            <a asp-action="AnimalPage" class="ShowMe" asp-route-id="@animal.AnimalId" asp-controller="Animal">Show Me More</a>
+                            <a asp-action="AnimalPage" class="ShowMeMore" asp-route-id="@animal.AnimalId" asp-controller="Animal">Show Me More</a>
                         </div>
+
                     </div>
 
                 }

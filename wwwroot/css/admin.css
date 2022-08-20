@@ -1,6 +1,17 @@
 ﻿body {
 }
 
+.link {
+    color: black;
+    text-decoration:none;
+    margin-left:30px;
+}
+.card p {
+    font-size:16px;
+    margin-top:34px;
+}
+
+
 .ContainList {
     display: flex;
     text-align: center;
@@ -8,18 +19,29 @@
     align-content: center;
     flex-wrap: wrap;
 }
-
-.img {
-    width: 80%;
-    height: 12rem;
+.addNew {
+   
+    color:black;
+    text-decoration:none;
+    font-size:25px;
+    margin-top:150px;
 }
+    .addNew:hover {
+        color:green;
+    }
+
+
+    .img {
+        width: 80%;
+        height: 12rem;
+    }
 
 .card {
     display: flex;
     align-items: center;
     align-content: center;
     align-self: center;
-    height: 20rem;
+    height: fit-content;
     width: 17rem;
     margin-left: auto;
     margin-top: 50px;

@@ -1,0 +1,45 @@
+﻿
+@model amirProject.Models.Admin
+<head>
+    <link type="text/css" rel="stylesheet" href="~/css/login.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/amirProject.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <h1 class="text-center" style="margin-top:70px; margin-bottom:70px;">Login Here </h1>
+
+    <section>
+        <div class="row d-flex justify-content-center col-12">
+            <div class="col-4 border border-primary rounded m-20">
+                <form  method="post" asp-action="Login"  asp-controller="Admin" class="py-5">
+                    <div class="d-flex justify-content-center">
+                        <i class="icon-map-marker icon-4x text-success"></i>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+                        <div class="text-danger"></div>
+                    </div>
+                    <div class="form-group" style="margin-top: 20px;">
+                        <input asp-for="@Model.Email" class="form-control" placeholder="Email address" required />
+                        @Html.ValidationMessageFor(model => model.Email)
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="form-group " style="margin-top: 20px;">
+                        <input asp-for="@Model.Password" class="form-control" placeholder="Password" type="password" required />
+                        @Html.ValidationMessageFor(model => model.Password)
+
+                        <span class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <button style="margin-left:40%; margin-top:50px;" type="submit" class="btn btn-lg btn-success btn-block">Login</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+

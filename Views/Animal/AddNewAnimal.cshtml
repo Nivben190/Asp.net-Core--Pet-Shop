@@ -13,29 +13,59 @@
     <div class="text-center">
         <h1 class="display-4">Add New Animal </h1>
 
-        @using (Html.BeginForm("AddNewAnimal", "Admin", FormMethod.Post))
-        {
-            @Html.Label("Animal Name");
-            @Html.TextBox("AnimalName", null, new { @placeholder = "Animal Name" })
-            <br />
-            @Html.Label("Animal Age");
-            @Html.TextBox("Age", null, new { @placeholder = "Animal Age" })
-            <br />
-            @Html.Label("PicName");
-            @Html.TextBox("PicName", null, new { @placeholder = "Pic Name" })
-            <br />
-            @Html.Label("Desc");
-            @Html.TextArea("Desc", null, new { @placeholder = "Add Desc Here" })
-            <br />
-            @*@Html.Label("Category");
-            @Html.TextBox("Category")*@
 
-            <input type="submit" value="Add Animal" />
+        <div class="container-fluid" style="width:350px;">
+            <div class="row">
+                <div class="col-md-12">
+                    @using (Html.BeginForm("AddNewAnimal", "Admin", FormMethod.Post))
+                    {
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Name, "Name", new { @class = "label" })
+                            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = "Name" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Age, " Age", new { @class = "label" })
+                            @Html.TextBoxFor(model => model.Age, new { @class = "form-control", @placeholder = "Age", @type = "number" })
+                        </div>
 
-        }
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Description, "Desc", new { @class = "label" })
+                            @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @placeholder = "Desc" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PictureSrc, "Picture ", new { @class = "label" })
+                            @Html.TextBoxFor(model => model.PictureSrc, "", new { type = "file", accept = ".jpg, .jpeg, .png, .pdf" })
+                        </div>
+                        
+                        <fieldset>
+                            <p class="SearchByCategory"> Category:</p> <select id="categoryId" name="categoryId">
+
+                                <option value="1">Birds</option>
+
+                                <option value="2">Mammals</option>
 
 
-    </div>
+                                <option value="3">Fishes</option>
+
+                                <option value="4">Amphibians</option>
+
+
+                                <option value="5">reptiles</option>
+
+                            </select>
+                            <input class="submit" type="submit" value="Show Me" />
+
+                        </fieldset>
+                        <input type="submit" class="btn btn-primary " value="Submit" />
+
+                    }
+                </div>
+            </div>
+        </div>           
+
+
+        </div>
 </body>
 
 

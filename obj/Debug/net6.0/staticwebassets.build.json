@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "racUOLYp4Pjrfb8fI2Uc4lv7Pd688egSsZqo5zeu428=",
+  "Hash": "vWM+Gy2bkQQX8oPkrelu8ivgQIw9VFEdr4oROpKq82c=",
   "Source": "amirProject",
   "BasePath": "_content/amirProject",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/admin.css"
+    },
+    {
+      "Identity": "/Users/nivbenaviv/Projects/amirProject/amirProject/wwwroot/css/login.css",
+      "SourceId": "amirProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/nivbenaviv/Projects/amirProject/amirProject/wwwroot/",
+      "BasePath": "_content/amirProject",
+      "RelativePath": "css/login.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/login.css"
     },
     {
       "Identity": "/Users/nivbenaviv/Projects/amirProject/amirProject/wwwroot/css/niv.css",

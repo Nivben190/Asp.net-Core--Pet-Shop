@@ -10,11 +10,12 @@
     <link rel="stylesheet" href="~/amirProject.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <div class="text-center">
-        <h1 class="display-4">Admin Page </h1>
+    <div>
+        <h1 class="display-4 text-center">Admin Page </h1>
+
+        <a class="addNew" asp-action="BackToAnimalPage" asp-controller="Animal">Add New Animal</a>
 
         <div>
-            <a asp-action="BackToAnimalPage" asp-controller="Animal">Add New Animal</a>
 
             <div class="ContainList">
 
@@ -28,8 +29,8 @@
                             <img class="img" src="@animal.PictureSrc" />
                             <p>@animal.Description</p>
 
-                            <a asp-action="DeleteAnimal" asp-controller="Admin" asp-route-id="@animal.AnimalId">Delete</a>
-                            <a asp-action="EditAnimal" asp-controller="Admin" asp-route-id="@animal.AnimalId">Edit</a>
+                            <a class="link" style="color:black" asp-action="DeleteAnimal" asp-controller="Admin" asp-route-id="@animal.AnimalId">Delete</a>
+                            <a class="link" asp-action="EditAnimal" asp-controller="Admin" asp-route-id="@animal.AnimalId">Edit</a>
                         </div>
                     </div>
                 }
