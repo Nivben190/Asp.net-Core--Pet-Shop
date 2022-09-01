@@ -15,7 +15,7 @@ in my project i used SQL Light  with mvc architecture , and asp.net core
 for style i used bootsrap 
 
 <img width="1440" alt="צילום מסך 2022-09-01 ב-5 15 29 אח׳" src="https://user-images.githubusercontent.com/96342824/187936948-4198af1c-9048-4fe4-a1e7-874b840f5a7c.png">
-trap
+
 
 
 <img width="1440" alt="צילום מסך 2022-09-01 ב-5 15 24 אח׳" src="https://user-images.githubusercontent.com/96342824/187936929-e6f185b3-e99d-4b46-b5f9-e2e3de8203e8.png">
@@ -24,9 +24,7 @@ trap
 <img width="1440" alt="צילום מסך 2022-09-01 ב-5 15 02 אח׳" src="https://user-images.githubusercontent.com/96342824/187936886-7e5ada26-b28c-4e48-bfbd-415fe1701d9c.png">
 <img width="1440" alt="צילום מסך 2022-09-01 ב-5 15 00 אח׳" src="https://user-images.githubusercontent.com/96342824/187936870-2451daba-6455-408f-ae7e-0571fb46a590.png">
 
-
-
-![Uploading צילום מסך 2022-09-01 ב-5.14.52 אח׳.png…]()
+<img width="1440" alt="צילום מסך 2022-09-01 ב-5 14 52 אח׳" src="https://user-images.githubusercontent.com/96342824/187937329-0ec8d9e0-aae6-49a8-986c-ddc85bed039c.png">
 
 
 
