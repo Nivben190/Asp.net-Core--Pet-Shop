@@ -1,4 +1,4 @@
-Asp net Core Project 
+Asp net Core Project , Also Phone Responsive!!
 
 my own personal pet-website with asp.net core, in the website you can search animals by category and show detailes on them, 
 you can also check what animals have the most comments and add comment.
