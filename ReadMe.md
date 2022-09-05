@@ -14,6 +14,15 @@ in my project i used SQL Light  with mvc architecture , and asp.net core
 
 for style i used bootsrap 
 
+#Docker 
+if you want to run my project with docker , just run this two lines in the terminal !
+docker pull nivben2000/asppetshop:latest
+ docker run -p 3030:80 nivben2000/asppetshop:latest
+
+
+
+
+
 <img width="1440" alt="צילום מסך 2022-09-01 ב-5 15 29 אח׳" src="https://user-images.githubusercontent.com/96342824/187936948-4198af1c-9048-4fe4-a1e7-874b840f5a7c.png">
 
 
