@@ -16,8 +16,10 @@ for style i used bootsrap
 
 # Docker 
 if you want to run my project with docker , just run this two lines in the terminal !
-docker pull nivben2000/asppetshop:latest
- docker run -p 3030:80 nivben2000/asppetshop:latest
+
+
+ * docker pull nivben2000/asppetshop:latest
+  * docker run -p 3030:80 nivben2000/asppetshop:latest
 
 
 
