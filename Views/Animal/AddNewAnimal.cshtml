@@ -20,22 +20,30 @@
                     @using (Html.BeginForm("AddNewAnimal", "Admin", FormMethod.Post))
                     {
                         <div class="form-group">
+                            <span style="color:red">animal name should be under 15 letters</span>
+                            <br />
                             @Html.LabelFor(model => model.Name, "Name", new { @class = "label" })
                             @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = "Name" })
                         </div>
                         <div class="form-group">
+
+                            <span style="color:red">animal age should be under 120</span>
+                            <br />
                             @Html.LabelFor(model => model.Age, " Age", new { @class = "label" })
                             @Html.TextBoxFor(model => model.Age, new { @class = "form-control", @placeholder = "Age", @type = "number" })
                         </div>
 
                         <div class="form-group">
+
+                            <span style="color:red">animal desc should be under 30 letters</span>
+                            <br />
                             @Html.LabelFor(model => model.Description, "Desc", new { @class = "label" })
                             @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @placeholder = "Desc" })
                         </div>
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.PictureSrc, "Picture ", new { @class = "label" })
-                            @Html.TextBoxFor(model => model.PictureSrc, "", new { type = "file", accept = ".jpg, .jpeg, .png, .pdf" })
+                            @Html.TextBoxFor(model => model.PictureSrc, "", new {  accept = ".jpg, .jpeg, .png, .pdf" })
                         </div>
                         
                         <fieldset>
@@ -54,10 +62,10 @@
                                 <option value="5">reptiles</option>
 
                             </select>
-                            <input class="submit" type="submit" value="Show Me" />
+                            <input class="submit" type="submit" value="category..." />
 
                         </fieldset>
-                        <input type="submit" class="btn btn-primary " value="Submit" />
+                        <input type="submit" class="btn btn-primary " value="Add Animal" />
 
                     }
                 </div>

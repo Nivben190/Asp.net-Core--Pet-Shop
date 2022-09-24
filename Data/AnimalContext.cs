@@ -13,6 +13,7 @@ namespace amirProject.Data
     {
         public AnimalsContext(DbContextOptions<AnimalsContext> options) : base(options)
         {
+
         }
 
         public virtual DbSet<Category>? categories { get; set; }

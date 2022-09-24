@@ -27,18 +27,14 @@ namespace amirProject.Repositery
             var animal = _context.Animals!.Include(c => c.Comments);
             var pets = animal!.OrderByDescending(p => p.Comments!.Count).Take(2).ToList();
             return pets;
-
         }
        
-
-
     public void AddNewAnimal(Animal animal, int categoryId)
         {
             var animalList = _context.Animals!.ToArray();
             int id = (int)(animalList[animalList.Length - 1].AnimalId! + 1);
 
-
-     _context.Animals!.Add(new Animal { AnimalId = id, Age = animal.Age, Name = animal.Name, CategoryId= categoryId, Description = animal.Description, PictureSrc = animal.PictureSrc });
+          _context.Animals!.Add(new Animal { AnimalId = id, Age = animal.Age, Name = animal.Name, CategoryId= categoryId, Description = animal.Description, PictureSrc = animal.PictureSrc });
             _context.SaveChanges();
         }
 

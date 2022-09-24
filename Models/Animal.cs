@@ -8,7 +8,7 @@ namespace amirProject.Models
     {
         public int? AnimalId { get; set; }
 
-        [StringLength(10)]
+        [StringLength(15)]
         public string? Name { get; set; }
 
         [Range(0, 120)]
@@ -16,8 +16,9 @@ namespace amirProject.Models
 
         public string? PictureSrc { get; set; }
 
-        [StringLength(2)]
+        [StringLength(30)]
         public string? Description { get; set; }
+
         public int? CategoryId { get; set; }
 
         public ICollection<Comment>? Comments { get; set; }

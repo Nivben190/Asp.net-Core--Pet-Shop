@@ -18,7 +18,7 @@
     "amirProject": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "http://localhost:3009",
+      "applicationUrl": "http://localhost:24378",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

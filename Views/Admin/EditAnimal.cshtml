@@ -9,25 +9,37 @@
     @Html.HiddenFor(model => model.AnimalId)
     <br />
 
+    <span style="color:red">animal name should be under 15 letters</span>
+    <br />
+
     @Html.Label("Animal Name");
-    @Html.TextBoxFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = "Name" })
+    <br />
+
+    <span style="color:red">animal age should be under 120</span>
     <br />
 
     @Html.Label("Animal Age");
-    @Html.TextBoxFor(model => model.Age)
+    @Html.TextBoxFor(model => model.Age, new { @class = "form-control", @placeholder = "Age", @type = "number" })
+    <br />
+
+
+    <span style="color:red">animal desc should be under 30 letters</span>
     <br />
 
     @Html.Label("Animal Desc");
-    @Html.TextBoxFor(model => model.Description)
+    @Html.TextBoxFor(model => model.Description, new { @class = "form-control", @placeholder = "Desc" })
     <br />
+
+
     @Html.Label("PicSrc");
-    @Html.TextBoxFor(model => model.PictureSrc)
+    @Html.TextBoxFor(model => model.PictureSrc, new { @class = "pic", accept = ".jpg, .jpeg, .png, .pdf" })
     <br />
 
     <fieldset>
         <p class="SearchByCategory"> Category:</p> <select id="categoryId" name="categoryId">
 
-            
+
 
             <option value="1">Birds</option>
 
@@ -42,7 +54,7 @@
             <option value="5">reptiles</option>
 
         </select>
-        <input class="submit" type="submit" value="Show Me" />
+        <input class="submit" type="submit" value="categoty..." />
 
     </fieldset>
     <input type="submit" value="Edit Animal" />

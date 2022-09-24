@@ -14,6 +14,7 @@ namespace amirProject.Controllers
     public class AdminController : Controller
     {
         private IAnimalServices animalServices;
+        private bool isLogged = false;
 
         public AdminController(IAnimalServices animalServices) => this.animalServices = animalServices;
 
@@ -23,7 +24,12 @@ namespace amirProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (admin.Email == "nivniv66@gmail.com" && admin.Password == "nivniv66") return RedirectToAction("Index");
+
+                if (admin.Email == "nivniv66@gmail.com" && admin.Password == "nivniv66")
+                {
+                    isLogged = true;
+                    return RedirectToAction("Index",admin);
+                }
                 else return View("Login");
             }
             return View("Login");
@@ -34,7 +40,13 @@ namespace amirProject.Controllers
 
         public IActionResult EditAnimal(int id) => View(animalServices.FindAnimalById(id));
 
-        public IActionResult Index() => View(animalServices.GetAllAnimals().Animals!.Include(c => c.Categories));
+        public IActionResult Index(Admin admin)
+        {
+            if (admin.Email!="nivniv66@gmail.com") return View("Login");
+
+            return View(animalServices.GetAllAnimals().Animals!.Include(c => c.Categories));
+
+        }
 
         public IActionResult DeleteAnimal(int id)
         {
